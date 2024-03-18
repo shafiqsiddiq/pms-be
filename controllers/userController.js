@@ -343,7 +343,7 @@ export const projectsGraphData = async (req, res) => {
 
   // Remove duplicates from the findTaskWithProjectIds array and store only unique values
   const uniqueIds = Array.from(
-    new Set(findTaskWithProjectIds.map((objId) => objId.toString()))
+    new Set(findTaskWithProjectIds.map((objId) => objId?.toString()))
   );
   const projectData = await generateBlogRequestData.find({
     projectId: { $in: uniqueIds },
